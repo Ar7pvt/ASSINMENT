@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body {
+    margin: 0;
+    font-family: Inter, 'Segoe UI', Roboto, sans-serif;
+    background: #ffffff;
+    color: #0f172a;
+  }
+
+  html.dark,
+  html.dark body {
+    background: #02050f;
+    color: #e2e8f0;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  /* Ensure input styles work in dark mode */
+  html.dark input,
+  html.dark select,
+  html.dark textarea {
+    background-color: #1e293b;
+    color: #e2e8f0;
+  }
+
+  html.dark input::placeholder {
+    color: #94a3b8;
+  }
+
+  html.dark select option {
+    background-color: #1e293b;
+    color: #e2e8f0;
+  }
+}
+
+@layer components {
+  .surface {
+    @apply rounded-3xl border border-slate-800/90 bg-slate-950/90 shadow-[0_35px_80px_-30px_rgba(15,23,42,0.9)];
+  }
+
+  .surface.dark {
+    @apply border-slate-800/90 bg-slate-950/90 shadow-[0_35px_80px_-30px_rgba(15,23,42,0.9)];
+  }
+
+  .pill-button {
+    @apply rounded-full border border-slate-800/80 bg-slate-900/80 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-cyan-400/40 hover:text-white;
+  }
+
+  .pill-button.dark {
+    @apply border-slate-800/80 bg-slate-900/80 text-slate-200 hover:border-cyan-400/40 hover:text-white;
+  }
+}
+
+.glow-ring {
+  box-shadow: 0 0 54px rgba(67, 56, 202, 0.36), 0 0 120px rgba(129, 60, 255, 0.15);
+}
+
+.card-border {
+  border-image: linear-gradient(135deg, rgba(56, 189, 248, 0.55), rgba(168, 85, 247, 0.45)) 1;
+}
